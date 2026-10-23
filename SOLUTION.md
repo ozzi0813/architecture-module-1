@@ -1,8 +1,5 @@
 # OrderFlow: Architecture under Change
 
-*Модуль 1 · Architecture analysis та evolution plan · на основі коду, docs і метрик з репозиторію*
-
-## TL;DR
 
 OrderFlow не потребує переходу на мікросервіси. Проблема не в тому, що це modular monolith, а в тому, що **boundaries всередині нього протікають**, а **delivery process не використовує модульність**. Пропоную evolution plan у 4 кроки, який лишає один deployable, але виправляє три конкретні речі: Payments читає чужий repository, Notifications сидить у critical path checkout, Reporting сканує operational data в тому ж process. Перший кандидат на окремий deployment, якщо умови справдяться, це Reporting, а не Payments чи Orders. Для AI Time to Market реалістична ціль 2-3 місяці (точкова оцінка \~2,5), а не 1 місяць.
 
